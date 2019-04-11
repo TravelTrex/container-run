@@ -42,6 +42,10 @@ if [ "${CONTAINER_RUN_INTERACTIVE}" == "true" ]; then
     options+=" -it"
 fi
 
+if [ -n "${CONTAINER_RUN_DOCKEROPTS}" ]; then
+    options+=" ${CONTAINER_RUN_DOCKEROPTS}"
+fi
+
 working_dir="/app"
 if [ -n "${CONTAINER_RUN_WORKING_DIR}" ]; then
     local_dir=${PWD}
